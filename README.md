@@ -15,5 +15,5 @@ packaging works.
 All is needed is packaging the app so that is available to the main app:
 
 ```shell
-mvn clean package
+mvn clean install
 ```
