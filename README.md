@@ -11,3 +11,9 @@ There is also an exported service so test that it can be used by the main app.
 
 The main app is located in this other repo and the aim for this app is to technically assess and understand how OBR 
 packaging works.
+
+All is needed is packaging the app so that is available to the main app:
+
+```shell
+mvn clean package
+```
