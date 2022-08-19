@@ -20,7 +20,7 @@
         <confluence.version>7.4.0</confluence.version>
         <product.version>7.4.18</product.version>
         <amps.version>8.7.0</amps.version>
-        <atlassian.spring.scanner.version>3.0.1</atlassian.spring.scanner.version>
+        <atlassian.spring.scanner.version>3.0.2</atlassian.spring.scanner.version>
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
     </properties>
 
@@ -53,6 +53,11 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.9.0</version>
+            </plugin>
+            <plugin>
                 <groupId>com.atlassian.maven.plugins</groupId>
                 <artifactId>confluence-maven-plugin</artifactId>
                 <version>${amps.version}</version>
@@ -69,7 +74,7 @@
 
                         <!-- Add package to export here -->
                         <Export-Package>
-                            com.aruizca.confluence.sampleapp.api
+                            com.aruizca.confluence.sampleapp.*
                         </Export-Package>
 
                         <!-- Add package import here -->
@@ -82,6 +87,28 @@
                         <!-- Ensure plugin is spring powered -->
                         <Spring-Context>*</Spring-Context>
                     </instructions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.atlassian.plugin</groupId>
+                <artifactId>atlassian-spring-scanner-maven-plugin</artifactId>
+                <version>${atlassian.spring.scanner.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>atlassian-spring-scanner</goal>
+                        </goals>
+                        <phase>process-classes</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <verbose>false</verbose>
+                    <scannedDependencies>
+                        <dependency>
+                            <groupId>com.atlassian.pocketknife</groupId>
+                            <artifactId>atlassian-pocketknife-querydsl</artifactId>
+                        </dependency>
+                    </scannedDependencies>
                 </configuration>
             </plugin>
         </plugins>
