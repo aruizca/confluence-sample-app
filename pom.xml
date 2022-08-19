@@ -74,7 +74,7 @@
 
                         <!-- Add package to export here -->
                         <Export-Package>
-                            com.aruizca.confluence.sampleapp.*
+                            com.aruizca.confluence.sampleapp.api*
                         </Export-Package>
 
                         <!-- Add package import here -->
