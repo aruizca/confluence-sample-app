@@ -48,6 +48,12 @@
             <version>${atlassian.spring.scanner.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>main-api</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -74,6 +80,7 @@
 
                         <!-- Add package import here -->
                         <Import-Package>
+                            com.aruizca.confluence.mainapp*;
                             org.springframework.osgi.*;resolution:="optional",
                             org.eclipse.gemini.blueprint.*;resolution:="optional",
                             *;resolution:="optional"
@@ -83,6 +90,11 @@
                         <Spring-Context>*</Spring-Context>
                     </instructions>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.9.0</version>
             </plugin>
         </plugins>
     </build>
