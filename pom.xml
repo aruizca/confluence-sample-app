@@ -52,7 +52,9 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>main-api</artifactId>
             <version>1.0.0-SNAPSHOT</version>
-            <scope>provided</scope>
+            <!--            <scope>provided</scope>-->
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../confluence-main-app/main-api/target/main-api-1.0.0-SNAPSHOT.jar</systemPath>
         </dependency>
     </dependencies>
 
