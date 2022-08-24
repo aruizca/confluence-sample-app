@@ -54,7 +54,8 @@
             <version>1.0.0-SNAPSHOT</version>
             <!--            <scope>provided</scope>-->
             <scope>system</scope>
-            <systemPath>${project.basedir}/../confluence-main-app/main-api/target/main-api-1.0.0-SNAPSHOT.jar</systemPath>
+            <systemPath>${project.basedir}/../confluence-main-app/main-api/target/main-api-1.0.0-SNAPSHOT.jar
+            </systemPath>
         </dependency>
     </dependencies>
 
@@ -87,11 +88,13 @@
 
                         <!-- Add package import here -->
                         <Import-Package>
-                            com.aruizca.confluence.mainapp*;
                             org.springframework.osgi.*;resolution:="optional",
                             org.eclipse.gemini.blueprint.*;resolution:="optional",
                             *;resolution:="optional"
                         </Import-Package>
+                        <DynamicImport-Package>
+                            com.aruizca.confluence.mainapp.api;version="1.0.0";
+                        </DynamicImport-Package>
 
                         <!-- Ensure plugin is spring powered -->
                         <Spring-Context>*</Spring-Context>
