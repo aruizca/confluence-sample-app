@@ -101,15 +101,6 @@
                         <phase>process-classes</phase>
                     </execution>
                 </executions>
-                <configuration>
-                    <verbose>false</verbose>
-                    <scannedDependencies>
-                        <dependency>
-                            <groupId>com.atlassian.pocketknife</groupId>
-                            <artifactId>atlassian-pocketknife-querydsl</artifactId>
-                        </dependency>
-                    </scannedDependencies>
-                </configuration>
             </plugin>
         </plugins>
     </build>
